@@ -118,6 +118,7 @@ install() {
 }
 
 prepare_system() {
+        echo "Executing prepare_system"
 	pushd "${TEST_DIR}" || exit
 	PERL_MM_USE_DEFAULT=1
 	export PERL_MM_USE_DEFAULT
@@ -154,5 +155,6 @@ fi
 get_test_program "${TEST_GIT_URL}" "${TEST_DIR}" "${TEST_PROG_VERSION}" "${TEST_PROGRAM}"
 
 create_out_dir "${OUTPUT}"
+echo "After prepare_system"
 prepare_system
 run_test
