@@ -122,14 +122,16 @@ prepare_system() {
 	pushd "${TEST_DIR}" || exit
 	PERL_MM_USE_DEFAULT=1
 	export PERL_MM_USE_DEFAULT
+        echo "Prepare_system after PERL_MM_USE_DEFAULT"
 	cpan -F JSON Cpanel::JSON::XS List::BinarySearch
 	AUTO_PACKAGE_INSTALL=yes
 	export AUTO_PACKAGE_INSTALL
+        echo "Prepare_system after AUTO_PACKAGE_INSTALL"
 	DOWNLOADED=0
 	COUNTER=0
-	while [ $DOWNLOADED -eq 0 ] && [ $COUNTER -lt "$MMTESTS_MAX_RETRIES" ]; do
-		./run-mmtests.sh -b --no-monitor --config "${MMTESTS_CONFIG_FILE}" benchmark && DOWNLOADED=1
-		COUNTER=$((COUNTER+1))
+	# while [ $DOWNLOADED -eq 0 ] && [ $COUNTER -lt "$MMTESTS_MAX_RETRIES" ]; do
+	#	./run-mmtests.sh -b --no-monitor --config "${MMTESTS_CONFIG_FILE}" benchmark && DOWNLOADED=1
+	#	COUNTER=$((COUNTER+1))
 	done
 	popd || exit
 }
@@ -155,6 +157,6 @@ fi
 get_test_program "${TEST_GIT_URL}" "${TEST_DIR}" "${TEST_PROG_VERSION}" "${TEST_PROGRAM}"
 
 create_out_dir "${OUTPUT}"
-echo "After prepare_system"
+echo "Before prepare_system"
 prepare_system
-run_test
+# run_test
