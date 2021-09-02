@@ -132,7 +132,8 @@ prepare_system() {
 	# while [ $DOWNLOADED -eq 0 ] && [ $COUNTER -lt "$MMTESTS_MAX_RETRIES" ]; do
 	#	./run-mmtests.sh -b --no-monitor --config "${MMTESTS_CONFIG_FILE}" benchmark && DOWNLOADED=1
 	#	COUNTER=$((COUNTER+1))
-	done
+	# done
+        echo "Finish prepare_system"
 	popd || exit
 }
 
