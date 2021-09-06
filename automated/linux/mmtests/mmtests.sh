@@ -160,4 +160,4 @@ get_test_program "${TEST_GIT_URL}" "${TEST_DIR}" "${TEST_PROG_VERSION}" "${TEST_
 create_out_dir "${OUTPUT}"
 echo "Before prepare_system"
 prepare_system
-# run_test
+run_test
